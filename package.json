@@ -1,0 +1,15 @@
+{
+   "name": "news",
+   "version": "1.0.0",
+   "description": "an tray app made with electron",
+   "main": "main.js",
+   "scripts": {
+      "start": "electron .",
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "author": "Ecthor Nunes",
+   "license": "ISC",
+   "dependencies": {
+      "electron": "^30.0.8"
+   }
+}
