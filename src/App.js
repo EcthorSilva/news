@@ -1,15 +1,15 @@
 import './App.css';
 
-// Importando os componentes Header e Body
-import { Header, Body } from './components';
+import {Header, Card} from './components';
 
 function App() {
    return (
       <div className="App">
          <Header />
-
-         <Body />
-
+         <Card />
+         <Card />
+         <Card />
+         <Card />
       </div>
    );
 }

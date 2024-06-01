@@ -9,8 +9,8 @@ function Header() {
                   <input type="search" className="form-control" placeholder="Search..." aria-label="Search" />
                </form>
 
-               <a href="/" className="text-dark text-decoration-none">
-                  <img className='rounded-circle' src="https://i1.sndcdn.com/artworks-d8IEGpJtVDjlQ76b-wfBUFA-t500x500.jpg" alt="" width="40" height="40"/>
+               <a href="https://fitgirl-repacks.site/donations/" target="_blank" className="text-dark text-decoration-none">
+                  <img  about='blank' className='rounded-circle' src="https://i1.sndcdn.com/artworks-d8IEGpJtVDjlQ76b-wfBUFA-t500x500.jpg" alt="" width="40" height="40"/>
                </a>
             </div>
          </div>

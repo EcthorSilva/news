@@ -1,10 +1,11 @@
+// main.js
 const path = require('path');
 const { app, Menu, Tray, BrowserWindow } = require('electron');
 
 let tray = null;
 let mainWindow = null;
 
-function createMainWindow() {
+function createMainWindow(url) {
    const win = new BrowserWindow({
       width: 400, // Largura da janela
       height: 700,
@@ -19,7 +20,7 @@ function createMainWindow() {
       }
    });
 
-   win.loadURL('http://localhost:3000');
+   win.loadURL(url);
 
    mainWindow = win;
 
@@ -38,13 +39,14 @@ function createMainWindow() {
    mainWindow.setPosition(x, y, false);
 }
 
-function toggleMainWindow() {
+function toggleMainWindow(url) {
    if (mainWindow && mainWindow.isVisible()) {
       mainWindow.hide();
    } else {
       if (!mainWindow) {
-         createMainWindow();
+         createMainWindow(url);
       } else {
+         mainWindow.loadURL(url);
          mainWindow.show();
       }
    }
@@ -56,8 +58,8 @@ app.whenReady().then(() => {
    tray.setToolTip('news-app');
 
    const contextMenu = Menu.buildFromTemplate([
-      { label: 'Abrir Janela', click: toggleMainWindow },
-      { label: 'Configurações', click: () => { console.log('Configurações clicado'); } },
+      { label: 'Abrir Janela', click: () => toggleMainWindow('http://localhost:3000/') },
+      { label: 'Configurações', click: () => toggleMainWindow('http://localhost:3000/config') },
       { type: 'separator' },
       { label: 'Sair', click: () => { app.quit(); } }
    ]);
@@ -65,7 +67,7 @@ app.whenReady().then(() => {
    tray.setContextMenu(contextMenu);
 
    tray.on('click', () => {
-      toggleMainWindow();
+      toggleMainWindow('http://localhost:3000/');
    });
 
    tray.on('right-click', () => {
