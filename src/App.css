@@ -3,11 +3,13 @@
    /* cor e reio da faixa da barra de rolagem */
    background-color: #ffffff;
 }
+
 *::-webkit-scrollbar {
    /* Largura e altura da barra de rolagem */
    width: 6px;
    background-color: #ffffff;
 }
+
 *::-webkit-scrollbar-thumb {
    /* Cor e raio do "polegar" da barra de rolagem */
    background-color: #88888881;
@@ -18,4 +20,4 @@
    width: 130px;
    height: auto;
    object-fit: cover;
- }
+}
