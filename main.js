@@ -58,7 +58,7 @@ app.whenReady().then(() => {
 
    const contextMenu = Menu.buildFromTemplate([
       { label: 'Abrir Janela', click: () => toggleMainWindow('http://localhost:3000/') },
-      { label: 'Configurações', click: () => toggleMainWindow('http://localhost:3000/config') },
+      { label: 'Configurações', click: () => toggleMainWindow('http://localhost:3000/ConfigPage') }, // URL corrigida
       { type: 'separator' },
       { label: 'Sair', click: () => { app.quit(); } }
    ]);

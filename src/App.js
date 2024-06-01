@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Header, Card } from './components';
 
-const App = () => {
+const App = ({ maxPages }) => {
   const [loading, setLoading] = useState(true);
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3005');
+        const maxPages = localStorage.getItem('maxPages') || 10;
+        const response = await fetch(`http://localhost:3005?maxPages=${maxPages}`);
         if (!response.ok) {
           throw new Error('Failed to fetch');
         }
@@ -23,7 +24,7 @@ const App = () => {
     };
 
     fetchData();
-  }, []);
+  }, [maxPages]);
 
   return (
     <div className="App">
