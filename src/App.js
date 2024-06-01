@@ -1,16 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
 
+// Importando os componentes Header e Body
+import { Header, Body } from './components';
+
 function App() {
-  return (
-    <div className="App">
-      <span id="chrome-version">Chrome</span>
-      <br />
-      <span id="node-version">Node</span>
-      <br />
-      <span id="electron-version">Electron</span>
-    </div>
-  );
+   return (
+      <div className="App">
+         <Header />
+
+         <Body />
+
+      </div>
+   );
 }
 
 export default App;

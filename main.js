@@ -6,8 +6,8 @@ let mainWindow = null;
 
 function createMainWindow() {
    const win = new BrowserWindow({
-      width: 300, // Largura da janela
-      height: 600,
+      width: 400, // Largura da janela
+      height: 700,
       show: false, // Não mostrar imediatamente
       frame: false,  // Remover a barra de título
       fullscreenable: false, // Não permitir tela cheia
