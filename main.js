@@ -52,7 +52,7 @@ function toggleMainWindow(url) {
 }
 
 app.whenReady().then(() => {
-   tray = new Tray(path.resolve(__dirname, 'assets', 'tray-icon.png'));
+   tray = new Tray(path.resolve(__dirname, 'assets', 'cropped-icon.jpg'));
 
    tray.setToolTip('news-app');
 
