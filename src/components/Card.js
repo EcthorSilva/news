@@ -1,5 +1,3 @@
-// components/Card.js
-
 import React from "react";
 
 const Card = ({ title, link, magnetLink, postDate, imageUrl }) => {
@@ -7,7 +5,7 @@ const Card = ({ title, link, magnetLink, postDate, imageUrl }) => {
     <main className="container pt-0 d-flex align-content-center flex-column">
       <div className="card d-flex flex-row">
         <img
-          src={imageUrl} // Utilizando imageUrl aqui
+          src={imageUrl}
           className="card-img-left"
           alt="..."
         />

@@ -1,5 +1,3 @@
-// App.js
-
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Header, Card } from './components';
@@ -46,7 +44,7 @@ const App = () => {
               link={card.link}
               magnetLink={card.magnetLink}
               postDate={card.postDate}
-              imageUrl={card.imageLink} // Passando imageUrl da API
+              imageUrl={card.imageLink}
             />
           ))}
         </div>
