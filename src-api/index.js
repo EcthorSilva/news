@@ -36,9 +36,8 @@ async function fetchFitGirlPage(pageNumber) {
    }
 }
 
-async function fetchFitGirlData(searchTerm = '') {
+async function fetchFitGirlData(searchTerm = '', maxPages = 10) {
    try {
-      const maxPages = 50;
       let currentPage = 1;
       let found = false;
       let results = [];
@@ -71,6 +70,9 @@ async function fetchFitGirlData(searchTerm = '') {
 
 app.get('/', async (req, res) => {
    const pageNumber = req.query.p;
+   const searchTerm = req.query.q;
+   const maxPages = req.query.maxPages ? parseInt(req.query.maxPages) : 10;
+
    if (pageNumber) {
       const data = await fetchFitGirlPage(pageNumber);
       if (data) {
@@ -79,8 +81,7 @@ app.get('/', async (req, res) => {
          res.status(500).json({ error: 'Falha ao buscar dados' });
       }
    } else {
-      const searchTerm = req.query.q;
-      const data = await fetchFitGirlData(searchTerm);
+      const data = await fetchFitGirlData(searchTerm, maxPages);
       if (data) {
          res.json(data);
       } else {
