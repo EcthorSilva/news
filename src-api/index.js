@@ -17,7 +17,7 @@ async function fetchFitGirlPage(pageNumber) {
 
       let results = [];
 
-      $('article').each((index, element) => {
+      $('article').each((element) => {
          const title = $(element).find('.entry-title a').text();
          const link = $(element).find('.entry-title a').attr('href');
          const magnetLink = $(element).find('a[href^="magnet:?"]').attr('href');
