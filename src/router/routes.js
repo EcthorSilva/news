@@ -4,16 +4,16 @@ import App from '../App';
 import ConfigPage from './ConfigPage';
 
 const AppRoutes = () => {
-  const [config, setConfig] = useState({ maxPages: 10 });
+   const [config, setConfig] = useState({ maxPages: 10 });
 
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<App maxPages={config.maxPages} />} />
-        <Route path="/ConfigPage" element={<ConfigPage config={config} setConfig={setConfig} />} />
-      </Routes>
-    </Router>
-  );
+   return (
+      <Router>
+         <Routes>
+            <Route path="/" element={<App maxPages={config.maxPages} />} />
+            <Route path="/ConfigPage" element={<ConfigPage config={config} setConfig={setConfig} />} />
+         </Routes>
+      </Router>
+   );
 };
 
 export default AppRoutes;

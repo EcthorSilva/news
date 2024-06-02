@@ -1,28 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const ConfigPage = () => {
    const [maxPages, setMaxPages] = useState(localStorage.getItem('maxPages') || 10);
-   const [selectedRadio, setSelectedRadio] = useState('listGroupCheckableRadios1'); // Estado para o radio selecionado
+   const [selectedRadio, setSelectedRadio] = useState(localStorage.getItem('selectedTheme') || 'listGroupCheckableRadios1');
    const navigate = useNavigate();
 
-   // Função para salvar as configurações
    const handleSave = () => {
       localStorage.setItem('maxPages', maxPages);
-      navigate('/'); // Navegue de volta para a página principal
+      localStorage.setItem('selectedTheme', selectedRadio);
+      applyTheme(selectedRadio);
+      navigate('/');
    };
 
-   // Função para lidar com a mudança do radio
    const handleRadioChange = (id) => {
       setSelectedRadio(id);
+      localStorage.setItem('selectedTheme', id);
+      applyTheme(id);
    };
+
+   const applyTheme = (theme) => {
+      const html = document.querySelector('html');
+      switch (theme) {
+         case 'listGroupCheckableRadios2': // Dark
+            html.setAttribute('data-bs-theme', 'dark');
+            break;
+         case 'listGroupCheckableRadios3': // Light
+            html.setAttribute('data-bs-theme', 'light');
+            break;
+         default: // Auto
+            const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            html.setAttribute('data-bs-theme', prefersDarkMode ? 'dark' : 'light');
+            break;
+      }
+   };
+
+   useEffect(() => {
+      const savedTheme = localStorage.getItem('selectedTheme');
+      applyTheme(savedTheme || 'listGroupCheckableRadios1');
+   }, []);
 
    return (
       <div className="config-page">
          <div className="container px-4 py-4">
             <h2 className='pb-2 border-bottom text-dark-emphasis'>Configurações</h2>
 
-            <h4 className="py-2 text-black-50">Selecione o tema</h4>
+            <h4 className="py-2">Selecione o tema</h4>
             <div className="d-flex flex-column flex-md-row gap-4 py-md-5 justify-content-center">
                <div className="list-group list-group-checkable d-grid gap-2 border-0">
                   <input
@@ -83,7 +106,7 @@ const ConfigPage = () => {
 
             <hr />
 
-            <h4 className="py-2 text-black-50">Cards</h4>
+            <h4 className="py-2">Cards</h4>
             <span className="d-block small opacity-50 pb-2">Selecione o numero de cards que irá aparecer no app</span>
             <div className="form-floating">
                <select
