@@ -23,6 +23,7 @@
       "test": "react-scripts test",
       "eject": "react-scripts eject",
       "electron": "electron .",
+      "node": "node src-api/index.js",
       "build-electron": "npm run build && electron-builder"
    },
    "eslintConfig": {
