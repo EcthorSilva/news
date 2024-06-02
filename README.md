@@ -29,11 +29,10 @@ npm install
 ## Como Rodar o Aplicativo
 Após clonar o repositório e instalar as dependências, siga os passos abaixo para iniciar a aplicação:
 
-Abra um terminal e navegue até o diretório src-api e em seguida, inicie o servidor Node.js executando o seguinte comando:
+Abra um terminal inicie o servidor Node.js executando o seguinte comando:
 
 ```bash
-cd src-api
-node .
+npm run node
 ```
 O servidor será iniciado na porta padrão `3005`.
 
@@ -55,7 +54,7 @@ npm run start-electron
 
 Ficará mais ou menos assim: 
 
-![image](https://github.com/EcthorSilva/news/assets/13456785/0e336ea2-5f59-4727-bb8b-2908377d109b)
+![image](https://github.com/EcthorSilva/news/assets/13456785/4c08ee87-fa96-4544-9381-dedd99aba0ba)
 
 ### Observações
 
